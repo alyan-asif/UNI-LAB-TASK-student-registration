@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="profile.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#home">Dashboard</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#technology">Fees</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="pic">Syed Alyan<img src="nav.jpg"></li>
+    </ul>
+    <h1>Student Registration</h1>
+    <div class="form">
+        <form name="myform" id="output">
+            <div class="row">
+                <div class="details">
+                    <label class="name" for="fname">Student Name:</label>
+                    <input class="name" type="text" id="fname" name="fname" value="" style="margin-right:70px">
+                    <label class="left" for="uname" style="position: relative;left: 30px;">User Name:</label>
+                    <input class="left" type="text" id="uname" name="uname" value=""
+                        style="position: relative;left: 70px;">
+                </div>
+                <div class="details">
+                    <label class="name" for="password">Password:</label>
+                    <input class="name" type="password" id="pass" name="password" value="">
+                    <label class="left" for="qualification">Last Qualification:</label>
+                    <input class="left" type="text" id="qualification" name="qualification" value="">
+
+                </div>
+                <div class="details">
+                    <label class="name" for="email">Email:</label>
+                    <input class="name" type="email" id="email" name="email" value="" placeholder="username@mail.com">
+                    <label class="left" for="num">Mobile Number:</label>
+                    <input class="left" type="text" id="number" name="num" value=""
+                        style="position: relative;left: 115px;">
+                </div>
+            </div>
+
+            <div style="padding:30px 0px 10px 0px">
+                <label class="city" for="city">City:</label>
+                <select class="city" id="city" name="city">
+                    <option value="australia">Karachi</option>
+                    <option value="canada">Lahore</option>
+                    <option value="usa">Islamabad</option>
+                </select>
+
+                <label class="dob" for="birthday">D.O.B:</label>
+                <input class="dob" style="height: 30px; width: 150px;" type="date" id="birthday" name="birthday"
+                    >
+
+                <label class="gender" for="gender">gender:</label>
+                <input class="gender" type="radio" id="Male" name="gender" value="">
+                <label class="gender" for="html">Male</label>
+                <input class="gender" type="radio" id="Female" name="gender" value="">
+                <label class="gender" for="css">Female</label>
+
+
+            </div>
+            <div style="padding: 70px 0px 30px 0px;">
+                <label for="courses" style="position: relative;right: 30px;">Courses Apply:</label>
+                <input type="checkbox" id="course1" name="course1" value="Web Engineering">
+                <label for="vehicle1"> Web Engineering</label>
+                <input style="position: relative;left: 20px;" type="checkbox" id="course2" name="course2"
+                    value="Information Security">
+                <label style="position: relative; left: 20px;" for="vehicle2"> Information Security</label>
+                <input style="position: relative; left: 40px;" type="checkbox" id="course3" name="course3"
+                    value="Software Quality">
+                <label style="position: relative; left: 40px;" for="vehicle3"> Software Quality</label>
+            </div>
+            <button onclick="Login()">Submit</button>
+            <button id="btn" >Clear</button>
+
+        </form>
+
+    </div>
+    <script>
+
+        function Login() {
+            var fname = document.forms["myform"]["fname"].value;
+            var uname = document.forms["myform"]["uname"].value;
+            var password = document.forms["myform"]["password"].value;
+            var qualification = document.forms["myform"]["qualification"].value;
+            var email = document.forms["myform"]["email"].value;
+            var num = document.forms["myform"]["num"].value;
+            var gender = document.forms["myform"]["gender"].value;
+            var city = document.forms["myform"]["city"].value;
+            var birthday = document.forms["myform"]["birthday"].value;
+            var course1 = document.forms["myform"]["course1"].value;
+            if (fname == "") {
+                alert("Invalid Credentials, Please Fill out All Fields")
+                return false;
+            }
+            if (uname == "") {
+                alert("Invalid Credentials, Please Fill out All Fields")
+                return false;
+            }
+            if (password == "" || password.length < 6) {
+                alert("Password should be atleast 6 character long")
+                return false;
+            }
+            if (qualification == "") {
+                alert("Invalid Credentials, Please Fill out All Fields")
+                return false;
+            }
+            if (email == "") {
+                alert("Invalid Credentials, Please Fill out All Fields")
+                return false;
+            }
+            if (num == "" || num.length < 11) {
+                alert("Number should be atleast 11 character long ")
+                return false;
+            }
+            else {
+                alert("Successfully Logged inn..")
+            }
+        }
+        document.cookie = "Student Name=Syed Alyan; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+        const textarea = document.getElementById('output');
+        textarea.value = '';
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function handleClick() {
+            console.log(textarea.value);
+            textarea.value = '';
+            alert("Text Cleared")
+        });
+
+
+
+        // function cancel() {
+        //     document.getElementById("output").value = '';
+        //     alert("Text Cleared")
+        // }
+    </script>
+</body>
+
+</html>
